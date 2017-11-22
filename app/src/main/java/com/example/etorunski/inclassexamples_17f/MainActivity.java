@@ -29,7 +29,7 @@ public class MainActivity extends Activity implements SensorEventListener {
     int i = 0;
     String [] sourceData = { "Activity two", "Activity Three",
             "Base adapter example", "Open Web Page",
-            "Vibrate phone", "SQL Example"};
+            "Vibrate phone", "SQL Example", "AsyncExample"};
 
     private boolean listenToAccelerometer;
 
@@ -113,6 +113,9 @@ public class MainActivity extends Activity implements SensorEventListener {
                         break;
                     case 5://SQL EXAMPLE
                         startActivity(new Intent(MainActivity.this, SQLExample.class));
+                        break;
+                    case 6:
+                        startActivity(new Intent(MainActivity.this, AsyncActivity.class));
                         break;
                 }
             }
