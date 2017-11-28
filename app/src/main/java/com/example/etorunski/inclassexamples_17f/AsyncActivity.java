@@ -50,7 +50,7 @@ Log.i("Error", t.getMessage());
         {
             InputStream iStream;
             float i = 0;
-            while(i < args.length) {
+            while(i++ < args.length) {
                 try {
                     URL url = new URL(args[(int)i]);
                     HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
