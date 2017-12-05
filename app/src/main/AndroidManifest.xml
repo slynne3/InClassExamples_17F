@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".PageTwo" />
+        <activity android:name=".EmptyFragmentActivity" />
         <activity android:name=".PageThree" />
         <activity android:name=".ArrayListActivity" />
         <activity android:name=".SQLExample" />

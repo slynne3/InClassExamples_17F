@@ -22,10 +22,13 @@ public class DetailFragment extends Fragment {
 
         Bundle passedInfo = getArguments();
 
-    String s = "none";
-    if(passedInfo != null)
-        s= passedInfo.getString("Key");
-    Log.i("Passed key", s);
+    long id= 0;
+    if(passedInfo != null) {
+        id = passedInfo.getLong("ID");
+
+    }
+    Log.i("Passed key", ""+id);
+
 
         parent = activity;
     }

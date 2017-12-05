@@ -21,7 +21,7 @@
         android:id="@+id/action_three"
         android:icon="@android:drawable/ic_delete"
         android:orderInCategory="103"
-        android:title="Three"
+        android:title="Launch notification"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_four"

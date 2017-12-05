@@ -13,7 +13,7 @@ public class EmptyFragmentActivity extends Activity {
 
         Bundle info = getIntent().getExtras();
 
-         info.putString("Key", "From phone");
+         //info.putString("Key", "From phone");
         //start Transaction to insert fragment in screen:
         FragmentTransaction ft =  getFragmentManager().beginTransaction();
         DetailFragment df = new DetailFragment();

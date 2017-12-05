@@ -1,9 +1,13 @@
 package com.example.etorunski.inclassexamples_17f;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -78,6 +82,22 @@ String responseText = "You pressed yes";
 
                 break;
             case R.id.action_three:
+
+                NotificationCompat.Builder mBuilder =
+                        new NotificationCompat.Builder(this)
+                                .setSmallIcon(R.drawable.ic_drawer)
+                                .setContentTitle("My notification")
+
+                                .setContentText("You clicked Item three");
+                Intent resultIntent = new Intent(this, FragmentActivity.class);
+                PendingIntent resultPendingIntent = PendingIntent.getActivity( this, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                mBuilder.setContentIntent(resultPendingIntent);
+
+                int mNotificationId = 6548;
+                NotificationManager mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                mNotifyMgr.notify(mNotificationId, mBuilder.build());
+
+
                 break;
             case R.id.action_four:
                 break;
