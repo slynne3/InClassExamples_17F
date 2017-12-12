@@ -4,6 +4,9 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,15 +22,25 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-public class NavigationExample extends AppCompatActivity {
-String responseText = "You pressed yes";
+public class NavigationExample extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener{
 
+    String responseText = "You pressed yes";
+    DrawerLayout drawer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_example);
         Toolbar myToolbar = (Toolbar)findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
+
+        drawer = (DrawerLayout)findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, myToolbar, R.string.open_string, R.string.close_string);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navView = (NavigationView)findViewById(R.id.nav_view);
+        navView.setNavigationItemSelectedListener(this);
 
     }
     @Override
@@ -36,6 +49,23 @@ String responseText = "You pressed yes";
 	    MenuInflater inflater = getMenuInflater();
 	    inflater.inflate(R.menu.my_navigation_menu, menu);
 	    return true;
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item)
+    {
+        switch (item.getItemId()) {
+            case R.id.nav_item_one:
+                break;
+            case R.id.nav_item_two:
+                break;
+            case R.id.nav_item_three:
+                break;
+            case R.id.nav_item_four:
+                break;
+        }
+        drawer.closeDrawers();
+        return true;
     }
 
     @Override
