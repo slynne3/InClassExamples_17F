@@ -19,7 +19,7 @@ public class SQLExample extends Activity {
 
     private final static String name = "MyTable";
     private final static String DATABASE_NAME = "Filename.db";
-    private final static int VERSION_NUM = 1;
+    private final static int VERSION_NUM = 3;
     private final static String ASSIGNMENT = "ASSIGNMENT";
     private final static String GRADE = "GRADE";
     private final static String COMMENT = "COMMENT";

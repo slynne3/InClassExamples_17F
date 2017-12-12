@@ -1,6 +1,9 @@
 package com.example.etorunski.inclassexamples_17f;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -28,6 +31,7 @@ public class ArrayListActivity extends Activity {
 
         ListView theList = (ListView)findViewById(R.id.listView);
 
+        final boolean isPhone = findViewById(R.id.frame_layout) == null;
         /* for simple ArrayAdapter
         ArrayAdapter<String> adapter = new ArrayAdapter(this, R.layout.cell_layout,sourceData);
 
@@ -36,6 +40,25 @@ public class ArrayListActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.i("ListItemClick", "You clicked an item");
+                Bundle b = new Bundle();
+                b.putLong("ID", id);
+                if(isPhone)
+                {
+                    Intent goToDetails = new Intent(ArrayListActivity.this, EmptyFragmentActivity.class);
+                    goToDetails.putExtras(b);
+                    startActivity(goToDetails);
+
+                }
+                else //isTablet
+                {
+                    FragmentTransaction ft = getFragmentManager().beginTransaction();
+                    DetailFragment df = new DetailFragment();
+                    df.setArguments(b); //pass the id to the fragment
+
+                    ft.replace(R.id.frame_layout, df )
+                            .addToBackStack("")
+                            .commit();
+                }
             }
         });
         theList.setAdapter(new MyCustomAdapter());
@@ -82,8 +105,12 @@ public class ArrayListActivity extends Activity {
         }
 
         public long getItemId(int position)
-        {
-            return  position;
+        {/*
+            Cursor c;
+            c.moveToPosition(position);
+            return  c.getLong(c.getColumnIndex("_id"));*/
+
+            return position;
         }
 
         public String getItem(int position)

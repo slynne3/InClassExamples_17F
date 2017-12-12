@@ -30,7 +30,7 @@ public class MainActivity extends Activity implements SensorEventListener {
     String [] sourceData = { "Activity two", "Activity Three",
             "Base adapter example", "Open Web Page",
             "Vibrate phone", "SQL Example", "AsyncExample",
-    "Fragment Example"};
+    "Fragment Example", "Navigation example"};
 
     private boolean listenToAccelerometer;
 
@@ -120,6 +120,10 @@ public class MainActivity extends Activity implements SensorEventListener {
                         break;
                     case 7:
                         startActivity(new Intent(MainActivity.this, FragmentActivity.class));
+                        break;
+                    case 8: //menu example
+                        startActivity(new Intent(MainActivity.this, NavigationExample.class));
+
                         break;
                 }
             }
