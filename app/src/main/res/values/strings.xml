@@ -2,4 +2,9 @@
     <string name="app_name">InClassExamples_17F</string>
     <string name="buttonString">This goes on the button</string>
     <string name="asyncbutton">Run Async</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="header_text">A Nav Header</string>
+
+    <string name="open_string">Open</string>
+    <string name="close_string">Close</string>
 </resources>
